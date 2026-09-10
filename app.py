@@ -2,14 +2,16 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-APP_VERSION = "1.0.0"
+APP_VERSION = "1.1.0"
+MODEL_VERSION = "model-1"
 
 @app.route("/health", methods=["GET"])
 def health():
     return jsonify({
         "status": "healthy",
         "application": "student-ml-api",
-        "version": APP_VERSION
+        "application_version": APP_VERSION,
+        "model_version": MODEL_VERSION
     }), 200
 
 
